@@ -1,6 +1,12 @@
 {
-  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb-base"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "react-app",
+    "airbnb-base"
+  ],
   "rules": {
+    "jsx-quotes": [1, "prefer-double"],
     "indent": [2, 2]
   }
 }
