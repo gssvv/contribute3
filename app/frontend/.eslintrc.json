@@ -1,0 +1,6 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb-base"],
+  "rules": {
+    "indent": [2, 2]
+  }
+}
