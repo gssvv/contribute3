@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         primary: '#0AC270',
         bg: '#1C1C27',
+        discord: '#37393E',
       },
     },
   },

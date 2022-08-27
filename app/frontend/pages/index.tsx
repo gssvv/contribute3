@@ -42,7 +42,7 @@ const Home: NextPage = () => (
     <div className="container mx-auto px-4 mt-32 mb-32">
       <div>
         <h1>Community for <span className="text-primary">web3 <br /> open-source</span> contributors</h1>
-        <h3 className="mt-6 opacity-70">Explore projects, collaborate, <br /> grow reputation and career</h3>
+        <h4 className="mt-6 opacity-70">Explore projects · Collaborate · Grow reputation and career</h4>
       </div>
 
       {/* <div className="join-card">
@@ -51,7 +51,7 @@ const Home: NextPage = () => (
       </div> */}
     </div>
 
-    <div className="container max-w-7xl flex mx-auto px-4 gap-8 opacity-50">
+    <div className="container flex mx-auto px-4 gap-8 opacity-50">
       {[1, 2].map(() => (
         <div key="" className="w-1/2">
           <h2>Non-contributor</h2>
@@ -83,43 +83,110 @@ const Home: NextPage = () => (
       ))}
     </div>
 
-    <div className="what-we-do">
-      <h2>What we do in contribute3</h2>
+    <div className="bg-primary-gradient">
 
-      <div className="what-we-do__item">
-        <h4>Contribute & collaborate</h4>
+      <div className="container mx-auto px-4 py-16 my-32">
 
-        <div className="discord-message">
-          <img className="discord-message__avatar" />
-          <div className="discord-message__username">Alex</div>
-          <div className="discord-message__date">20/01/2020</div>
-          <div className="discord-message__content">
-          Hi guys. Opened an issue for hardhat-boilerplate for that deploy bug.
-          Can someone help me with the testing part? <a>https://github.com/NomicFound...</a>
-          </div>
+        <h2>What we do in <span className="text-primary">contribute3  </span></h2>
+
+        <div className="flex gap-12 mt-10 align-top">
+          {
+            [1, 2, 3].map(() => (
+              <div key="">
+                <h4><span className="text-primary">Contribute</span> & collaborate</h4>
+
+                <div className="mt-6 bg-discord p-4 flex gap-4 rounded-xl">
+                  <img
+                    className="w-12 h-12 bg-white rounded-full"
+                    style={{ minWidth: '3rem' }}
+                  />
+
+                  <div>
+                    <div>
+                      <span className="font-bold text-yellow-400">Alex</span>
+                      <span className="ml-2 opacity-50 text-sm">Today, 12:22</span>
+                    </div>
+                    <p className="mt-1">
+  Hi guys. Opened an issue for hardhat-boilerplate for that deploy bug.
+  Can someone help me with the testing part? <a>https://github.com/NomicFound...</a>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="ml-28 mt-6 bg-discord p-4 flex gap-4 rounded-xl">
+                  <img
+                    className="w-12 h-12 bg-white rounded-full"
+                    style={{ minWidth: '3rem' }}
+                  />
+
+                  <div>
+                    <div>
+                      <span className="font-bold text-yellow-400">Alex</span>
+                      <span className="ml-2 opacity-50 text-sm">Today, 12:22</span>
+                    </div>
+                    <p className="mt-1">
+  Hi guys. Opened an issue for hardhat-boilerplate for that deploy.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
         </div>
-        <div className="discord-message">
-          <img className="discord-message__avatar" />
-          <div className="discord-message__username">Alex</div>
-          <div className="discord-message__date">20/01/2020</div>
-          <div className="discord-message__content">
-          Hi guys. Opened an issue for hardhat-boilerplate for that deploy bug.
-          Can someone help me with the testing part? <a>https://github.com/NomicFound...</a>
-          </div>
-        </div>
-        <div className="discord-message">
-          <img className="discord-message__avatar" />
-          <div className="discord-message__username">Alex</div>
-          <div className="discord-message__date">20/01/2020</div>
-          <div className="discord-message__content">
-          Hi guys. Opened an issue for hardhat-boilerplate for that deploy bug.
-          Can someone help me with the testing part? <a>https://github.com/NomicFound...</a>
-          </div>
-        </div>
+
       </div>
     </div>
 
-    <footer>
+    <div className="container mx-auto px-4 my-32">
+      <h2>Not a <span className="text-primary">contributor</span> yet?</h2>
+      <h4 className="opacity-50 mt-3 mb-20">Here&apos;s why you should become one</h4>
+
+      <div className="flex gap-12 mt-16">
+        <h3 className="w-1/2 text-right -mt-0.5">Why contribute:</h3>
+        <ul className="w-1/2 leading-10 tick-list">
+          <li>Build your job resume</li>
+          <li>Grow your professional network</li>
+          <li>Enhance your tech skills</li>
+          <li>Meet people with same interests</li>
+          <li>Find mentors and teach others</li>
+        </ul>
+      </div>
+
+      <div className="flex gap-12 mt-16">
+        <h3 className="w-1/2 text-right -mt-0.5">Why contribute:</h3>
+        <ul className="w-1/2 leading-10 tick-list">
+          <li>Build your job resume</li>
+          <li>Grow your professional network</li>
+          <li>Enhance your tech skills</li>
+          <li>Meet people with same interests</li>
+          <li>Find mentors and teach others</li>
+        </ul>
+      </div>
+    </div>
+
+    <div className="bg-primary-gradient">
+      <div className="container mx-auto px-4 py-20 flex items-center gap-8">
+        <div className="w-2/3">
+          <h2 className="text-5xl">Looking for a <span className="text-primary">web3 project</span> to contribute?</h2>
+          <h4 className="mt-6">We made an list of cool
+        web3 projects <br/> ranked by activity and tech stack</h4>
+
+          <a href="#" className="mt-10 block">Check it out</a>
+        </div>
+
+        <img src="" alt="" className="bg-white w-96 h-72" />
+      </div>
+    </div>
+
+    <div className="container mx-auto px-4 py-32">
+      <h1 className="text-center">Are you with us?</h1>
+      <p className="mt-3 text-center opacity-50 text-xl">Membership is free. As all best things in life.</p>
+
+      <a href="#" className="mt-16 block text-center">Check it out</a>
+    </div>
+
+    <footer className="container mx-auto text-center text-xs my-8 font-mono">
+          made by <a href="https://twitter.com/gssvv_" target="_blank" rel="noreferrer">@gssvv_</a>
     </footer>
   </div>
 );
