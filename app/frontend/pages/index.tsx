@@ -72,7 +72,7 @@ const Home: NextPage = () => {
         </div>
       </header>
 
-      <div className="container overflow-visible mx-auto px-4 mt-32 mb-32 text-center relative">
+      <div className="container overflow-visible mx-auto px-4 my-16 sm:my-32 text-center relative">
         <img src="./blurry-gradient.png" className="blurry-gradient blurry-gradient--md -top-1/4 -left-1/4" alt="" />
 
         <div className="relative">
@@ -96,7 +96,7 @@ const Home: NextPage = () => {
           <div key="" className="lg:w-1/2 relative flex-wrap">
             <h3 className="font-bold"><span className="text-primary">Contribute3</span> member</h3>
             <div className="sm:mt-8 mt-4 flex gap-4 sm:gap-8">
-              <div>
+              <div className="min-w-max">
                 <img className="h-20 w-20 sm:h-32 sm:w-32 bg-white rounded-xl object-cover" src="./contribute3-member.jpg" alt="" />
                 <div className="mt-4 hidden sm:flex">
                   <img
@@ -121,9 +121,9 @@ const Home: NextPage = () => {
               <div className="text-sm sm:text-base">
                 <p className="mt-1 mb-3"><b>Status:</b> open to work (updated 1 year ago)</p>
 
-                <div className="w-11rem sm:w-60 flex flex-wrap gap-1 opacity-70">
+                <div className="w-full max-w-xs flex flex-wrap gap-1 opacity-70">
                   {historyList.map((colorIndex) => (
-                    <div key="" className={'w-2 h-2 sm:w-3 sm:h-3 rounded-sm bg-green-10'} style={{
+                    <div key="" className="history-dot" style={{
                       // background: historyColors[Math.max(colorIndex - 3, 0)],
                       background: historyColors[colorIndex],
                     }}></div>
@@ -138,13 +138,15 @@ const Home: NextPage = () => {
         ))}
       </div>
 
-      <div className="bg-primary-gradient relative hidden">
+      {/* What we do */}
 
-        <div className="container mx-auto px-4 py-16 my-32">
+      <div className="blue-block relative my-16 sm:my-32">
+
+        <div className="container mx-auto max-w-2xl xl:max-w-none px-4 py-16 sm:py-32">
 
           <h2>What we do in <span className="text-primary">contribute3  </span></h2>
 
-          <div className="flex gap-12 mt-10 align-top">
+          <div className="flex flex-wrap xl:flex-nowrap gap-12 mt-10 align-top">
             {
               [1, 2, 3].map(() => (
                 <div key="">
@@ -154,6 +156,7 @@ const Home: NextPage = () => {
                     <img
                       className="w-12 h-12 bg-white rounded-full"
                       style={{ minWidth: '3rem' }}
+                      src="./avatars/1.jpg"
                     />
 
                     <div>
@@ -163,15 +166,16 @@ const Home: NextPage = () => {
                       </div>
                       <p className="mt-1">
   Hi guys. Opened an issue for hardhat-boilerplate for that deploy bug.
-  Can someone help me with the testing part? <a className="text-sky-500">https://github.com/NomicFound...</a>
+  Can someone help me with the testing part? <a className="text-sky-500 break-all">https://github.com/NomicFound...</a>
                       </p>
                     </div>
                   </div>
 
-                  <div className="ml-28 mt-6 bg-discord p-4 flex gap-4 rounded-xl">
+                  <div className="ml-10 sm:ml-20 mt-6 bg-discord p-4 flex gap-4 rounded-xl">
                     <img
                       className="w-12 h-12 bg-white rounded-full"
                       style={{ minWidth: '3rem' }}
+                      src="./avatars/2.jpg"
                     />
 
                     <div>
