@@ -50,8 +50,9 @@ h2, h3, h4
       @apply text-primary text-xl font-bold
 
 @media (min-width: 1536px)
-  .container:not(.max-w-xl)
-    max-width: 1280px
+  .container, .xl\:container
+    &:not(.max-w-xl)
+      max-width: 1280px
 
 .text-primary
   background: linear-gradient(90deg, #2AF598 0%, #009EFD 100%)
@@ -64,7 +65,7 @@ h2, h3, h4
   background: linear-gradient(90deg, #2AF598 0%, #009EFD 100%)
 
 button
-  @apply sm:py-4 sm:px-8 sm:text-base text-sm py-3 px-6 font-bold leading-6 text-center bg-discord rounded-lg hover:opacity-75
+  @apply flex items-center gap-2 sm:py-4 sm:px-8 sm:text-base text-sm py-3 px-6 font-bold leading-6 text-center bg-discord rounded-lg hover:opacity-75
 
 .blurry-gradient
   position: absolute

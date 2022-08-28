@@ -142,7 +142,7 @@ const Home: NextPage = () => {
 
       <div className="blue-block relative my-16 sm:my-32">
 
-        <div className="container mx-auto max-w-2xl xl:max-w-none px-4 py-16 sm:py-32">
+        <div className="mx-auto max-w-2xl xl:container px-4 py-16 sm:py-32">
 
           <h2>What we do in <span className="text-primary">contribute3  </span></h2>
 
@@ -237,11 +237,32 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-32 hidden">
+      <div className="container mx-auto px-4 py-16 sm:py-32">
         <h1 className="text-center">Are you with us?</h1>
-        <p className="mt-3 text-center opacity-50 text-xl">Membership is free. As all best things in life.</p>
+        <p className="mt-3 text-center opacity-50 text-md sm:text-lg">Membership is free. As all best things in life.</p>
 
-        <a href="#" className="mt-16 block text-center">Check it out</a>
+        <div className="flex flex-wrap gap-4 mt-8 sm:mt-16 justify-center">
+          <a href="#" className="block text-center hover:no-underline">
+            <button className="text-sky-400">
+              <Telegram height={20} />
+            Telegram
+            </button>
+          </a>
+
+          <a href="#" className="block text-center hover:no-underline">
+            <button className="text-indigo-400">
+              <Discord height={20} />
+            Discord
+            </button>
+          </a>
+
+          <a href="#" className="block text-center hover:no-underline">
+            <button className="text-sky-500">
+              <Twitter height={20} />
+            Twitter
+            </button>
+          </a>
+        </div>
       </div>
 
       <footer className="container mx-auto text-center text-xs my-8 font-mono">
