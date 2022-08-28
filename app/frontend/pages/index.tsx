@@ -20,6 +20,28 @@ const Home: NextPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const mobileNavigation = useRef(null);
 
+  const profiles = [
+    {
+      title: 'Non-contributor',
+      status: 'open to work (updated 1 year ago)',
+      repositories: 5,
+      followers: '2',
+      jobOffers: 0,
+      avatar: './non-contributor.jpg',
+    },
+    {
+      title: 'Contribute3 member',
+      status: 'Senior Software Engineer at Metaverse',
+      repositories: 125,
+      followers: '12k',
+      jobOffers: 64,
+      highlightOffers: true,
+      hasAchievements: true,
+      highlyEffective: true,
+      avatar: './contribute3-member.jpg',
+    },
+  ];
+
   useClickAway(mobileNavigation, () => {
     setIsMenuOpen(false);
   });
@@ -63,7 +85,7 @@ const Home: NextPage = () => {
               <li><a className="text-white active:text-primary py-2 px-4 block" href="#">Community</a></li>
             </div>
             <div>
-              <li className="text-xs opacity-50 pt-4 pb-2 px-4">Follow us</li>
+              <li className="text-xs opacity-50 pt-4 pb-2 px-4">Join us</li>
               <li><a className="text-white active:text-primary py-2 px-4 block" href="#">Discord</a></li>
               <li><a className="text-white active:text-primary py-2 px-4 block" href="#">Twitter</a></li>
               <li><a className="text-white active:text-primary py-2 px-4 block" href="#">Telegram</a></li>
@@ -83,7 +105,7 @@ const Home: NextPage = () => {
           to gain real-world experience, imporve tech skills and build professional network.
           </p>
           <div className="flex sm:gap-6 gap-4 mt-10 justify-center flex-wrap">
-            <button className="bg-primary">Join community</button>
+            <button className="bg-primary--darken">Join community</button>
             <button><span className="text-primary">Explore projects</span></button>
           </div>
         </div>
@@ -92,46 +114,59 @@ const Home: NextPage = () => {
       <div className="container overflow-visible relative max-w-xl lg:max-w-6xl flex mx-auto px-4 gap-12 sm:gap-16 lg:gap-8 flex-col lg:flex-row">
         <img src="./blurry-gradient.png" className="blurry-gradient blurry-gradient--lg -right-20 sm:-right-48 -top-64" alt="" />
 
-        {[1, 2].map(() => (
-          <div key="" className="lg:w-1/2 relative flex-wrap">
-            <h3 className="font-bold"><span className="text-primary">Contribute3</span> member</h3>
+        {profiles.map((profile) => (
+          <div key="" className={`lg:w-1/2 relative flex-wrap ${!profile.highlyEffective && 'opacity-50'}`}>
+            <h3 className="font-bold">
+              <span className={profile.highlyEffective ? 'text-primary' : ''}>
+                {profile.title}
+              </span>
+            </h3>
             <div className="sm:mt-8 mt-4 flex gap-4 sm:gap-8">
               <div className="min-w-max">
-                <img className="h-20 w-20 sm:h-32 sm:w-32 bg-white rounded-xl object-cover" src="./contribute3-member.jpg" alt="" />
-                <div className="mt-4 hidden sm:flex">
-                  <img
-                    src="./github-achievements/0.png"
-                    className="w-12 h-12"
-                  />
-                  <img
-                    src="./github-achievements/1.png"
-                    className="w-12 h-12 -ml-5"
-                  />
-                  <img
-                    src="./github-achievements/2.png"
-                    className="w-12 h-12 -ml-5"
-                  />
-                  <img
-                    src="./github-achievements/3.png"
-                    className="w-12 h-12 -ml-6"
-                  />
-                </div>
+                <img className="h-20 w-20 sm:h-32 sm:w-32 bg-white rounded-xl object-cover" src={profile.avatar} alt="" />
+
+                {profile.hasAchievements && (
+                  <div className="mt-4 hidden sm:flex">
+                    <img
+                      src="./github-achievements/0.png"
+                      alt=""
+                      className="w-12 h-12"
+                    />
+                    <img
+                      src="./github-achievements/1.png"
+                      alt=""
+                      className="w-12 h-12 -ml-5"
+                    />
+                    <img
+                      src="./github-achievements/2.png"
+                      alt=""
+                      className="w-12 h-12 -ml-5"
+                    />
+                    <img
+                      src="./github-achievements/3.png"
+                      alt=""
+                      className="w-12 h-12 -ml-6"
+                    />
+                  </div>
+                )}
               </div>
 
               <div className="text-sm sm:text-base">
-                <p className="mt-1 mb-3"><b>Status:</b> open to work (updated 1 year ago)</p>
+                <p className="mt-1 mb-3"><b>Status:</b> {profile.status}</p>
 
                 <div className="w-full max-w-xs flex flex-wrap gap-1 opacity-70">
                   {historyList.map((colorIndex) => (
                     <div key="" className="history-dot" style={{
-                      // background: historyColors[Math.max(colorIndex - 3, 0)],
-                      background: historyColors[colorIndex],
+                      background: profile.highlyEffective ? historyColors[colorIndex]
+                        : historyColors[Math.max(colorIndex - 3, 0)],
                     }}></div>
                   ))}
                 </div>
 
-                <p className="mt-5"><b>5</b> repositories · <b>2</b> followers</p>
-                <p className="mt-2"><b>0</b> job offers</p>
+                <p className="mt-5"><b>{profile.repositories}</b> repositories · <b>{profile.followers}</b> followers</p>
+                <p className={'mt-2 '}>
+                  <span className={`${profile.jobOffers > 0 ? 'text-primary' : ''}`}><b>{profile.jobOffers}</b> job offers</span>
+                </p>
               </div>
             </div>
           </div>
@@ -237,31 +272,33 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-16 sm:py-32">
-        <h1 className="text-center">Are you with us?</h1>
-        <p className="mt-3 text-center opacity-50 text-md sm:text-lg">Membership is free. As all best things in life.</p>
+      <div className="blue-block mt-16 sm:mt-32">
+        <div className="container mx-auto px-4 py-16 sm:py-32">
+          <h1 className="text-center">Are you with us?</h1>
+          <p className="mt-3 text-center opacity-50 text-md sm:text-lg">Membership is free. As all best things in life.</p>
 
-        <div className="flex flex-wrap gap-4 mt-8 sm:mt-16 justify-center">
-          <a href="#" className="block text-center hover:no-underline">
-            <button className="text-sky-400">
-              <Telegram height={20} />
+          <div className="flex flex-wrap gap-4 mt-8 sm:mt-16 justify-center">
+            <a href="#" className="block text-center hover:no-underline">
+              <button className="text-sky-400">
+                <Telegram height={20} />
             Telegram
-            </button>
-          </a>
+              </button>
+            </a>
 
-          <a href="#" className="block text-center hover:no-underline">
-            <button className="text-indigo-400">
-              <Discord height={20} />
+            <a href="#" className="block text-center hover:no-underline">
+              <button className="text-indigo-400">
+                <Discord height={20} />
             Discord
-            </button>
-          </a>
+              </button>
+            </a>
 
-          <a href="#" className="block text-center hover:no-underline">
-            <button className="text-sky-500">
-              <Twitter height={20} />
+            <a href="#" className="block text-center hover:no-underline">
+              <button className="text-sky-500">
+                <Twitter height={20} />
             Twitter
-            </button>
-          </a>
+              </button>
+            </a>
+          </div>
         </div>
       </div>
 
