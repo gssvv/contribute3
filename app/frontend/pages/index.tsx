@@ -196,13 +196,13 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 my-32 hidden">
-        <h2>Not a <span className="text-primary">contributor</span> yet?</h2>
-        <h4 className="opacity-50 mt-3 mb-20">Here&apos;s why you should become one</h4>
+      <div className="container mx-auto px-4 my-16 sm:my-32">
+        <h2>Not a <span className="text-primary">contributor</span>?</h2>
+        <h4 className="opacity-50 mt-3 mb-10 sm:mb-20">Here&apos;s why you should become one</h4>
 
-        <div className="flex gap-12 mt-16">
-          <h3 className="w-1/2 text-right -mt-0.5">Why contribute:</h3>
-          <ul className="w-1/2 leading-10 tick-list">
+        <div className="flex flex-wrap md:flex-nowrap gap-4 md:gap-12 mt-8 sm:mt-16">
+          <h3 className="md:w-1/2 text-right md:-mt-0.5">Why contribute:</h3>
+          <ul className="md:w-1/2 leading-10 pl-4 md:pl-0 tick-list">
             <li>Build your job resume</li>
             <li>Grow your professional network</li>
             <li>Enhance your tech skills</li>
@@ -211,9 +211,9 @@ const Home: NextPage = () => {
           </ul>
         </div>
 
-        <div className="flex gap-12 mt-16">
-          <h3 className="w-1/2 text-right -mt-0.5">Why contribute:</h3>
-          <ul className="w-1/2 leading-10 tick-list">
+        <div className="flex flex-wrap md:flex-nowrap gap-4 md:gap-12 mt-8 sm:mt-16">
+          <h3 className="md:w-1/2 text-right md:-mt-0.5">Why contribute:</h3>
+          <ul className="md:w-1/2 leading-10 pl-4 md:pl-0 tick-list">
             <li>Build your job resume</li>
             <li>Grow your professional network</li>
             <li>Enhance your tech skills</li>
