@@ -1,12 +1,14 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 // import Image from 'next/image';
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import { useClickAway } from 'react-use';
 import historyList from '../data/historyList.json';
 
 import Discord from '../assets/icons/discord.svg';
 import Twitter from '../assets/icons/twitter.svg';
 import Telegram from '../assets/icons/telegram.svg';
+import Menu from '../assets/icons/menu.svg';
 
 export const getRandomElementFromArray = (arr: any[]) => {
   const randomIndex = Math.floor(arr.length * Math.random());
@@ -15,6 +17,12 @@ export const getRandomElementFromArray = (arr: any[]) => {
 
 const Home: NextPage = () => {
   const historyColors = ['#5B5B5B', '#86efac', '#4ade80', '#16a34a', '#166534'];
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const mobileNavigation = useRef(null);
+
+  useClickAway(mobileNavigation, () => {
+    setIsMenuOpen(false);
+  });
 
   return (
     <div>
@@ -37,10 +45,30 @@ const Home: NextPage = () => {
           <a className="text-white active:text-primary" href="#">Community</a>
         </nav>
 
-        <div className="flex gap-4">
+        <div className="hidden md:flex gap-4">
           <a href="#" className="text-white hover:text-emerald-400"><Discord className="h-6 w-6" alt="" /></a>
           <a href="#" className="text-white hover:text-emerald-400"><Twitter className="h-6 w-6" alt="" /></a>
           <a href="#" className="text-white hover:text-emerald-400"><Telegram className="h-6 w-6" alt="" /></a>
+        </div>
+
+        <div ref={mobileNavigation} className="md:hidden relative">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} type="button" className="p-0">
+            <Menu />
+          </button>
+          <ul className={`${!isMenuOpen && 'hidden'} absolute z-10 divide-y divide-zinc-700 right-0 w-52 rounded-lg bg-zinc-800 text-left font-normal`}>
+            <div>
+              <li className="text-xs opacity-50 pt-4 pb-2 px-4">Navigation</li>
+              <li><a className="text-white active:text-primary py-2 px-4 block" href="#">Home</a></li>
+              <li><a className="text-white active:text-primary py-2 px-4 block" href="#">Explore</a></li>
+              <li><a className="text-white active:text-primary py-2 px-4 block" href="#">Community</a></li>
+            </div>
+            <div>
+              <li className="text-xs opacity-50 pt-4 pb-2 px-4">Follow us</li>
+              <li><a className="text-white active:text-primary py-2 px-4 block" href="#">Discord</a></li>
+              <li><a className="text-white active:text-primary py-2 px-4 block" href="#">Twitter</a></li>
+              <li><a className="text-white active:text-primary py-2 px-4 block" href="#">Telegram</a></li>
+            </div>
+          </ul>
         </div>
       </header>
 
