@@ -42,6 +42,69 @@ const Home: NextPage = () => {
     },
   ];
 
+  const chatExamples = [
+    {
+      title: 'Contribute & collaborate',
+      messages: [
+        {
+          avatar: 'carrot.jpg',
+          color: 'text-yellow-500',
+          username: 'fake carrot',
+          date: 'Today, 12:22',
+          content: 'Hi guys. Opened an issue for hardhat-boilerplate for that deploy bug.<br><u>Can someone help me</u> with the testing part? <span class="text-sky-500">https://github.com/N...</a>',
+        },
+        {
+          avatar: 'mumu.jpg',
+          color: 'text-emerald-500',
+          username: 'Mumu',
+          date: 'Today, 13:54',
+          content: 'Working on that module too, I\'ll check it tonight',
+          isReply: true,
+        },
+      ],
+    },
+    {
+      title: 'Meet people & join events',
+      messages: [
+        {
+          avatar: 'krtek.jpg',
+          color: 'text-pink-500',
+          username: 'Krtek',
+          date: 'Today, 01:02',
+          content: 'Hi! <u>Looking for a team</u> for Polygon BUIDL IT. Good at React (ts+redux) and JS in general 🤓',
+        },
+        {
+          avatar: 'mumu.jpg',
+          color: 'text-indigo-500',
+          username: 'Rust Magician',
+          date: 'Today, 01:15',
+          content: 'Yo! DM me, we were just looking for a frontend dev',
+          isReply: true,
+        },
+      ],
+    },
+    {
+      title: 'Grow skills & get help',
+      messages: [
+        {
+          avatar: 'morti.jpg',
+          color: 'text-yellow-500',
+          username: 'Momento Morti',
+          date: 'Today, 20:55',
+          content: 'I am currently making a TLS client with Rust (OpenSSL). Having troubles with brotli compression.<br><u>Can anyone help?</u>',
+        },
+        {
+          avatar: 'redstone.jpg',
+          color: 'text-red-400',
+          username: 'redstone guy',
+          date: 'Today, 21:01',
+          content: 'Made similar thing, here\'s the repo <span class="text-sky-500">https://github...</span>',
+          isReply: true,
+        },
+      ],
+    },
+  ];
+
   useClickAway(mobileNavigation, () => {
     setIsMenuOpen(false);
   });
@@ -68,9 +131,12 @@ const Home: NextPage = () => {
         </nav>
 
         <div className="hidden md:flex gap-4">
-          <a href="#" className="text-white hover:text-emerald-400"><Discord className="h-6 w-6" alt="" /></a>
-          <a href="#" className="text-white hover:text-emerald-400"><Twitter className="h-6 w-6" alt="" /></a>
-          <a href="#" className="text-white hover:text-emerald-400"><Telegram className="h-6 w-6" alt="" /></a>
+          <a href="https://discord.gg/hCqtJHKQvu" target="_blank"
+            className="text-white hover:text-emerald-400" rel="noreferrer"><Discord className="h-6 w-6" alt="" /></a>
+          <a href="https://twitter.com/Contribute3HQ" target="_blank"
+            className="text-white hover:text-emerald-400" rel="noreferrer"><Twitter className="h-6 w-6" alt="" /></a>
+          <a href="https://contribute3.t.me/" target="_blank"
+            className="text-white hover:text-emerald-400" rel="noreferrer"><Telegram className="h-6 w-6" alt="" /></a>
         </div>
 
         <div ref={mobileNavigation} className="md:hidden relative">
@@ -86,9 +152,9 @@ const Home: NextPage = () => {
             </div>
             <div>
               <li className="text-xs opacity-50 pt-4 pb-2 px-4">Join us</li>
-              <li><a className="text-white active:text-primary py-2 px-4 block" href="#">Discord</a></li>
-              <li><a className="text-white active:text-primary py-2 px-4 block" href="#">Twitter</a></li>
-              <li><a className="text-white active:text-primary py-2 px-4 block" href="#">Telegram</a></li>
+              <li><a className="text-white active:text-primary py-2 px-4 block" href="https://discord.gg/hCqtJHKQvu" target="_blank" rel="noreferrer">Discord</a></li>
+              <li><a className="text-white active:text-primary py-2 px-4 block" href="https://twitter.com/Contribute3HQ" target="_blank" rel="noreferrer">Twitter</a></li>
+              <li><a className="text-white active:text-primary py-2 px-4 block" href="https://contribute3.t.me/" target="_blank" rel="noreferrer">Telegram</a></li>
             </div>
           </ul>
         </div>
@@ -102,11 +168,11 @@ const Home: NextPage = () => {
         projects today.</h1>
           <p className="mt-6 opacity-70 sm:text-xl text-base leading-7 font-light">
           Community where developers collaborate on open-source web3 projects <br className="md:block hidden" />
-          to gain real-world experience, imporve tech skills and build professional network.
+          to gain real-world experience, improve tech skills and build professional network.
           </p>
           <div className="flex sm:gap-6 gap-4 mt-10 justify-center flex-wrap">
-            <button className="bg-primary--darken">Join community</button>
-            <button><span className="text-primary">Explore projects</span></button>
+            <a href="https://discord.gg/hCqtJHKQvu" target="_blank" className="hover:no-underline" rel="noreferrer"><button className="bg-primary--darken">Join community</button></a>
+            {/* <button><span className="text-primary">Explore projects</span></button> */}
           </div>
         </div>
       </div>
@@ -183,30 +249,30 @@ const Home: NextPage = () => {
 
           <div className="flex flex-wrap xl:flex-nowrap gap-12 mt-10 align-top">
             {
-              [1, 2, 3].map(() => (
-                <div key="">
-                  <h4><span className="text-primary">Contribute</span> & collaborate</h4>
+              chatExamples.map((example) => (
+                <div key="" className="xl:w-1/3">
+                  {/* <h4><span className="text-primary">Contribute</span> & collaborate</h4> */}
+                  <h4 className="text-primary">{example.title}</h4>
 
-                  <div className="mt-6 bg-discord p-4 flex gap-4 rounded-xl">
-                    <img
-                      className="w-12 h-12 bg-white rounded-full"
-                      style={{ minWidth: '3rem' }}
-                      src="./avatars/1.jpg"
-                    />
+                  {example.messages.map((message) => (
+                    <div key="" className={`mt-6 bg-discord p-4 flex gap-4 rounded-xl ${message.isReply && 'ml-10 sm:ml-20'}`}>
+                      <img
+                        className="w-12 h-12 bg-white rounded-full"
+                        style={{ minWidth: '3rem' }}
+                        src="./avatars/1.jpg"
+                      />
 
-                    <div>
                       <div>
-                        <span className="font-bold text-yellow-400">Alex</span>
-                        <span className="ml-2 opacity-50 text-sm">Today, 12:22</span>
+                        <div>
+                          <span className={`font-bold ${message.color}`}>{message.username}</span>
+                          <span className="ml-2 opacity-50 text-sm">{message.date}</span>
+                        </div>
+                        <p className="mt-1" style={{ 'word-break': 'break-word' }} dangerouslySetInnerHTML={{ __html: message.content }}></p>
                       </div>
-                      <p className="mt-1">
-  Hi guys. Opened an issue for hardhat-boilerplate for that deploy bug.
-  Can someone help me with the testing part? <a className="text-sky-500 break-all">https://github.com/NomicFound...</a>
-                      </p>
                     </div>
-                  </div>
+                  ))}
 
-                  <div className="ml-10 sm:ml-20 mt-6 bg-discord p-4 flex gap-4 rounded-xl">
+                  {/* <div className="ml-10 sm:ml-20 mt-6 bg-discord p-4 flex gap-4 rounded-xl">
                     <img
                       className="w-12 h-12 bg-white rounded-full"
                       style={{ minWidth: '3rem' }}
@@ -222,7 +288,7 @@ const Home: NextPage = () => {
   Hi guys. Opened an issue for hardhat-boilerplate for that deploy.
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               ))
             }
