@@ -13,6 +13,7 @@ const Projects: NextPage = ({ links }: any) => (
       <meta name="description" content="Community where developers collaborate on open-source web3 projects
 to gain real-world experience, improve tech skills and build professional network." />
       <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+      <meta data-hid="og:image:url" property="og:image:url" content="https://contribute3.com/og-image.png" />
     </Head>
 
     <div className="container overflow-visible mx-auto px-4 my-16 sm:my-32 text-center relative">
